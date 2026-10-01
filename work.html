@@ -1,0 +1,175 @@
+<header>
+  <h1>Kaelan Percival</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="work.html">My Work</a>
+  </nav>
+</header>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="description" content="One sentence describing this page.">
+  <meta charset="UTF-8">
+  <title>My Work — Kaelan Percival</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>My Work</h1>
+<main>
+  <p>Coming soon — here's what I'm hoping to build this year:</p>
+  <ul>
+    <li>A moblie game for iOS and Android</li>
+    <li>Create a fuly functioning website on my own</li>
+    <li>Create an app for a windows pc  
+
+  </ul>
+  <script src="js/script.js"></script>
+</body>
+</html>
+<footer><p>&copy 2026 Kaelan Percival</p></footer>
+<main>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Fact Generator with Dark Mode</title>
+    <style>
+        /* CSS Variables for Light and Dark Modes */
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --btn-bg: #4CAF50;
+            --btn-hover: #45a049;
+            --btn-text: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #f4f4f9;
+            --card-bg: #2d2d2d;
+            --btn-bg: #68d391;
+            --btn-hover: #48bb78;
+            --btn-text: #1a1a1a;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding-top: 80px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode Toggle Button Positioned at Top Right */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button.action-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        button.action-btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        #fact-display {
+            margin-top: 30px;
+            font-size: 18px;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle-btn">🌙 Dark Mode</button>
+
+    <h1>Click the button to learn a fun fact!</h1>
+    
+    <!-- The Fact Generator Button -->
+    <button class="action-btn" id="fact-btn">Show Fact</button>
+    
+    <!-- Area where the fact will appear -->
+    <p id="fact-display">Your fact will show up here...</p>
+
+    <!-- JavaScript code -->
+    <script>
+        // 1. Fact Generator Logic
+        const facts = [
+            "I have multiple pets😺🐶🐟"
+        ];
+
+        const button = document.getElementById('fact-btn');
+        const factDisplay = document.getElementById('fact-display');
+
+        button.addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            factDisplay.textContent = facts[randomIndex];
+        });
+
+        // 2. Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const htmlElement = document.documentElement;
+
+        // Check if user has a saved preference in localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            updateToggleButtonText(savedTheme);
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                htmlElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                updateToggleButtonText('light');
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                updateToggleButtonText('dark');
+            }
+        });
+
+        function updateToggleButtonText(theme) {
+            if (theme === 'dark') {
+                themeToggleBtn.textContent = '☀️ Light Mode';
+            } else {
+                themeToggleBtn.textContent = '🌙 Dark Mode';
+            }
+        }
+    </script>
+
+</body>
+</html>

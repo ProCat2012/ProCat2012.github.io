@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e06908;
+  color: #000000;
+}/* Your styles go here — you'll start filling this in during Lesson 2.2 (CSS week). */
+h1 {
+  color: rgb(93, 16, 165);
+  font-size: 36;
+}
+nav {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  background-color: white;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(67, 5, 238);
+  font-weight: bold;
+  text-decoration:double
+}
+nav a:hover {
+  color: rgb(230, 139, 3);
+  background: color #f00;
+} 
+
+
+img {
+  max-width: 200px;
+  border-radius: 50%;
+  border: 4px solid #0004ff;
+}
+p {
+  padding: 10px;
+  line-height: 1.6;
+}
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+body:has(#dark-mode-toggle:checked) {
+  --bg: #af0000;
+  --text: #000000;
+}
