@@ -21,15 +21,16 @@
 }
 
 [data-theme="dark"] {
-  --bg-color: #1a1a1a;   /* PLACEHOLDER */
-  --text-color: #f4f4f9; /* PLACEHOLDER */
-  --heading-color: #bb86fc; /* PLACEHOLDER */
-  --nav-bg: #2d2d2d;     /* PLACEHOLDER */
-  --link-color: #8ab4f8; /* PLACEHOLDER */
-  --link-hover: #ffb84d; /* PLACEHOLDER */
-  --img-border: #5c7cfa; /* PLACEHOLDER */
-  --toggle-bg: #2d2d2d;  /* PLACEHOLDER */
-  --toggle-text: #f4f4f9; /* PLACEHOLDER */
+  /* CHANGED: first set of dark mode colours. These can be changed later. */
+  --bg-color: #1b1b24;
+  --text-color: #f0eef6;
+  --heading-color: #c9a7ff;
+  --nav-bg: #2a2838;
+  --link-color: #9ec5ff;
+  --link-hover: #ffb366;
+  --img-border: #7f8cff;
+  --toggle-bg: #2a2838;
+  --toggle-text: #f0eef6;
 }
 
 body {
