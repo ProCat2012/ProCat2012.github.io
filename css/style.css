@@ -5,41 +5,79 @@
    - the body:has(#dark-mode-toggle:checked) rule, which targeted an element that does not exist
    - the "Your styles go here" lesson note */
 
+/* CHANGED: colours are now variables so light and dark mode can share the same rules.
+   The :root values are the current light mode colours, so light mode looks the same as before.
+   The [data-theme="dark"] values are PLACEHOLDERS. Replace them with your own colours. */
+:root {
+  --bg-color: #e06908;
+  --text-color: #000000;
+  --heading-color: rgb(93, 16, 165);
+  --nav-bg: white;
+  --link-color: rgb(67, 5, 238);
+  --link-hover: rgb(230, 139, 3);
+  --img-border: #0004ff;
+  --toggle-bg: white;
+  --toggle-text: #000000;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;   /* PLACEHOLDER */
+  --text-color: #f4f4f9; /* PLACEHOLDER */
+  --heading-color: #bb86fc; /* PLACEHOLDER */
+  --nav-bg: #2d2d2d;     /* PLACEHOLDER */
+  --link-color: #8ab4f8; /* PLACEHOLDER */
+  --link-hover: #ffb84d; /* PLACEHOLDER */
+  --img-border: #5c7cfa; /* PLACEHOLDER */
+  --toggle-bg: #2d2d2d;  /* PLACEHOLDER */
+  --toggle-text: #f4f4f9; /* PLACEHOLDER */
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #e06908;
-  color: #000000;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  /* CHANGED: colours now come from the variables above */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 h1 {
-  color: rgb(93, 16, 165);
-  /* CHANGED: removed "font-size: 36;". It had no unit, so browsers ignored it. */
+  color: var(--heading-color);
 }
 
 nav {
   display: flex;
   gap: 20px;
   padding: 10px;
-  background-color: white;
+  align-items: center;
+  background-color: var(--nav-bg);
 }
 
-/* CHANGED: the duplicate text-decoration rule was merged into one.
-   The invalid "text-decoration: double" was removed. */
 nav a {
-  color: rgb(67, 5, 238);
+  color: var(--link-color);
   font-weight: bold;
   text-decoration: none;
 }
 
-/* CHANGED: removed the invalid "background: color #f00;" line. */
 nav a:hover {
-  color: rgb(230, 139, 3);
+  color: var(--link-hover);
+}
+
+/* CHANGED: pushes the toggle button to the right end of the nav bar */
+.theme-toggle {
+  margin-left: auto;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: var(--toggle-bg);
+  color: var(--toggle-text);
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
 }
 
 img {
   max-width: 200px;
   border-radius: 50%;
-  border: 4px solid #0004ff;
+  border: 4px solid var(--img-border);
 }
 
 p {

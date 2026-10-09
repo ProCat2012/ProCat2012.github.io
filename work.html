@@ -10,6 +10,14 @@
   <meta name="description" content="Kaelan Percival's goals for the year: a mobile game, a fully functioning website, and a Windows app.">
   <title>My Work — Kaelan Percival</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- CHANGED: applies the saved dark mode choice before the page is drawn, so the page does not flash light first -->
+  <script>
+    try {
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <!-- CHANGED: header and nav moved inside <body>. The h1 site name was added to match the other pages. -->
@@ -19,6 +27,8 @@
       <a href="index.html">Home</a>
       <a href="about.html">About Me</a>
       <a href="work.html">My Work</a>
+      <!-- CHANGED: dark mode toggle button restored. Its label is set by script.js. -->
+      <button class="theme-toggle" id="theme-toggle-btn">🌙 Dark Mode</button>
     </nav>
   </header>
 
@@ -35,8 +45,8 @@
     </ul>
   </main>
 
-  <!-- CHANGED: footer moved inside <body>, "&copy" fixed to "&copy;", and the copy-pasted
-       fact generator that was after </html> was removed (it is still in the git history). -->
+  <!-- CHANGED: footer moved inside <body>, "&copy" fixed to "&copy;", and the name made consistent.
+       The copy-pasted fact generator that was after </html> was removed. -->
   <footer>
     <p>&copy; 2026 Kaelan Percival</p>
   </footer>

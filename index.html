@@ -10,6 +10,14 @@
   <meta name="description" content="Home page for Kaelan Percival, a game enthusiast and mountain biker.">
   <title>Kaelan Percival — Studio Profile</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- CHANGED: applies the saved dark mode choice before the page is drawn, so the page does not flash light first -->
+  <script>
+    try {
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <!-- CHANGED: the header and nav were moved inside <body>. The site name h1 was moved here from <main>
@@ -20,6 +28,8 @@
       <a href="index.html">Home</a>
       <a href="about.html">About Me</a>
       <a href="work.html">My Work</a>
+      <!-- CHANGED: dark mode toggle button restored. Its label is set by script.js. -->
+      <button class="theme-toggle" id="theme-toggle-btn">🌙 Dark Mode</button>
     </nav>
   </header>
 
@@ -30,10 +40,8 @@
     <p>Web Department.</p>
   </main>
 
-  <!-- CHANGED: footer moved inside <body>, "&copy" fixed to "&copy;" (missing semicolon),
-       and the name made consistent with the other pages ("Kaelan" changed to "Kaelan Percival").
-       The copy-pasted fact generator (with its own dark mode toggle) that was after </html> was removed.
-       It is still in the git history if you want it back. -->
+  <!-- CHANGED: footer moved inside <body>, "&copy" fixed to "&copy;", and the name made consistent with the other pages.
+       The copy-pasted fact generator (with its own dark mode toggle) that was after </html> was removed. -->
   <footer>
     <p>&copy; 2026 Kaelan Percival</p>
   </footer>
