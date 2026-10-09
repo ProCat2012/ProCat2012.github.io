@@ -1,12 +1,21 @@
+/* CLEANUP NOTE: Removed declarations that browsers ignored anyway, so the look is unchanged:
+   - "font-size: 36" on h1 (no unit, so invalid; the default heading size is used)
+   - "text-decoration: double" on nav links (invalid on its own)
+   - "background: color #f00" on nav links hover (invalid syntax)
+   - the body:has(#dark-mode-toggle:checked) rule, which targeted an element that does not exist
+   - the "Your styles go here" lesson note */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #e06908;
   color: #000000;
-}/* Your styles go here — you'll start filling this in during Lesson 2.2 (CSS week). */
+}
+
 h1 {
   color: rgb(93, 16, 165);
-  font-size: 36;
+  /* CHANGED: removed "font-size: 36;". It had no unit, so browsers ignored it. */
 }
+
 nav {
   display: flex;
   gap: 20px;
@@ -14,33 +23,35 @@ nav {
   background-color: white;
 }
 
+/* CHANGED: the duplicate text-decoration rule was merged into one.
+   The invalid "text-decoration: double" was removed. */
 nav a {
-  text-decoration: none;
   color: rgb(67, 5, 238);
   font-weight: bold;
-  text-decoration:double
+  text-decoration: none;
 }
+
+/* CHANGED: removed the invalid "background: color #f00;" line. */
 nav a:hover {
   color: rgb(230, 139, 3);
-  background: color #f00;
-} 
-
+}
 
 img {
   max-width: 200px;
   border-radius: 50%;
   border: 4px solid #0004ff;
 }
+
 p {
   padding: 10px;
   line-height: 1.6;
 }
+
 main {
   max-width: 700px;
   margin: 0 auto;
   padding: 20px;
 }
-body:has(#dark-mode-toggle:checked) {
-  --bg: #af0000;
-  --text: #000000;
-}
+
+/* CHANGED: removed the body:has(#dark-mode-toggle:checked) rule. No element with that id exists,
+   so the rule never ran. */
